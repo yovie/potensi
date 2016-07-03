@@ -37,8 +37,50 @@
                     <?php endforeach;?>
                 </tbody>
             </table>
-            <button class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Data Siswa</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#tambah-siswa" ><i class="fa fa-plus"></i> Tambah Data Siswa</button>
         </div> 
+    </div>
+
+    <div id="tambah-siswa" class="modal fade" role="dialog">
+        <form method="post" class="form-horizontal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Tambah Siswa</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-md-3">NIS</label>
+                            <div class="col-md-5">
+                                <input type="text" name="nis" class="form-control" placeholder="NIS" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Nama</label>
+                            <div class="col-md-9">
+                                <input type="text" name="nama" class="form-control" placeholder="Nama" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Kontak</label>
+                            <div class="col-md-5">
+                                <input type="text" name="kontak" class="form-control" placeholder="Kontak" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Email</label>
+                            <div class="col-md-7">
+                                <input type="email" name="email" class="form-control" placeholder="Email" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer"> &nbsp;
+                        <button class="btn btn-primary pull-right"> <i class="fa fa-save"></i> simpan </button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
             
     <script type="text/javascript">
