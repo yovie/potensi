@@ -16,5 +16,10 @@
 		),
 		'logout'=>array(
 			'C'=>'modules/modul_logout.php'
-		)
+		),
+
+		'data_siswa'=>array(
+			'C'=>'modules/modul_datasiswa.php',
+			'V'=>'templates/modul_datasiswa.php'
+		),
 	);

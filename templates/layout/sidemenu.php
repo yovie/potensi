@@ -13,7 +13,7 @@
                         </li> -->
                         <?php if( $user_session->group_id==USER_GURU ): ?>
                         <li>
-                            <a href="data_siswa"><i class="fa fa-users fa-fw"></i> Data Siswa</a>
+                            <a href="data_siswa" class="<?php echo $module_link=="data_siswa" ? "active":"" ?>"><i class="fa fa-users fa-fw"></i> Data Siswa</a>
                         </li>
                         <li>
                             <a href="data_indikator"><i class="fa fa-th-list fa-fw"></i> Data Indikator</a>
