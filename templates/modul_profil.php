@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="panel-footer"> &nbsp;
-                        <button class="btn btn-xs btn-primary pull-right">simpan</button> 
+                        <button class="btn btn-xs btn-primary pull-right"> <i class="fa fa-save"></i> simpan</button> 
                     </div>
                 </div>
             </form>
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     <div class="panel-footer"> &nbsp;
-                        <button class="btn btn-xs btn-primary pull-right">simpan</button> 
+                        <button class="btn btn-xs btn-primary pull-right"> <i class="fa fa-save"></i> simpan</button> 
                     </div>
                 </div>
             </form>
