@@ -10,9 +10,9 @@
 			'C'=>'modules/modul_login.php',
 			'V'=>'templates/modul_login.php'
 		),
-		'setting'=>array(
-			'C'=>'modules/modul_seting.php',
-			'V'=>'templates/modul_seting.php'
+		'profile'=>array(
+			'C'=>'modules/modul_profil.php',
+			'V'=>'templates/modul_profil.php'
 		),
 		'logout'=>array(
 			'C'=>'modules/modul_logout.php'

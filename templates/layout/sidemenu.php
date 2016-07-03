@@ -11,9 +11,22 @@
                             </span>
                             </div>
                         </li> -->
+                        <?php if( $user_session->group_id==USER_GURU ): ?>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="data_siswa"><i class="fa fa-users fa-fw"></i> Data Siswa</a>
                         </li>
+                        <li>
+                            <a href="data_indikator"><i class="fa fa-th-list fa-fw"></i> Data Indikator</a>
+                        </li>
+                        <li>
+                            <a href="hasil_tes"><i class="fa fa-file fa-fw"></i> Hasil Tes</a>
+                        </li>
+                        <?php endif; ?>
+                        <?php if( $user_session->group_id==USER_SISWA ): ?>
+                        <li>
+                            <a href="tes"><i class="fa fa-dashboard fa-fw"></i> Tes</a>
+                        </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

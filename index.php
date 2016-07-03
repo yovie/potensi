@@ -18,6 +18,8 @@ extract($_POST, EXTR_PREFIX_ALL, "post");
 $get = empty($_GET) ? false:true;
 extract($_GET, EXTR_PREFIX_ALL, "get");
 
+$user_session = get_session();
+
 list($module_link, $blank) = each($_GET);
 
 $module_link = empty($module_link) ? DEFAULT_MODULE : $module_link;
