@@ -29,20 +29,21 @@
                         <td><?php echo $item->kontak ?></td>
                         <td><?php echo $item->email ?></td>
                         <td align="center">
-                            <button class="btn btn-xs btn-success">login info</button>
-                            <button class="btn btn-xs btn-warning">ubah</button>
+                            <button class="btn btn-xs <?php echo empty($item->have_account) ? "btn-default":"btn-success"; ?>">login info</button>
+                            <button class="btn btn-xs btn-warning" id="ubah" data-toggle="modal" data-target="#tambah-siswa" data-info='<?php echo json_encode($item); ?>'>ubah</button>
                             <button class="btn btn-xs btn-danger">hapus</button>
                         </td>
                     </tr>
                     <?php endforeach;?>
                 </tbody>
             </table>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#tambah-siswa" ><i class="fa fa-plus"></i> Tambah Data Siswa</button>
+            <button class="btn btn-primary" id="tambah" data-toggle="modal" data-target="#tambah-siswa" ><i class="fa fa-plus"></i> Tambah Data Siswa</button>
         </div> 
     </div>
 
     <div id="tambah-siswa" class="modal fade" role="dialog">
-        <form method="post" class="form-horizontal">
+        <form method="post" class="form-horizontal" enctype="multipart/form-data">
+            <input type="hidden" name="id" value=""/>
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -74,6 +75,12 @@
                                 <input type="email" name="email" class="form-control" placeholder="Email" />
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Foto</label>
+                            <div class="col-md-7">
+                                <input type="file" name="foto" class="form-control" placeholder="Foto" />
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer"> &nbsp;
                         <button class="btn btn-primary pull-right"> <i class="fa fa-save"></i> simpan </button>
@@ -92,6 +99,13 @@
                 ]
             } );
         } );
+
+        $('#tambah-siswa').on('shown.bs.modal', function (e) {
+            var b = $(e.targe);
+            var inf = b.data( 'info' );
+            console.log(inf);
+            $('input[name=nis]').focus();
+        });
     </script>
 
 <?php include "layout/footer.php"; ?>
