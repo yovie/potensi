@@ -5,9 +5,27 @@
 			redirect( "login" );
 
 	if( $post ) {
-		if( isset($login_info) ) {
+		if( isset($post_login_info) ) {
 
-			
+			$ck = select_one( "users", "ref_id=" . $post_id );
+			if( empty($ck) ) {
+				insert( "users", array(
+					"username"=>$post_username,
+					"password"=>md5($post_pwd),
+					"tpwd"=>$post_pwd,
+					"status"=>1,
+					"group_id"=>2,
+					"ref_id"=>$post_id
+				) );
+			} else {
+				update( "users", array(
+					"username"=>$post_username,
+					"password"=>md5($post_pwd),
+					"tpwd"=>$post_pwd,
+					"status"=>1,
+					"group_id"=>2
+				), "ref_id=" . $post_id );
+			}
 
 		} elseif( isset($post_delete) ) {
 			
@@ -26,7 +44,7 @@
 					"nip"=>$post_nis,
 					"nama"=>$post_nama,
 					"kontak"=>$post_kontak,
-					"email"=>$post_email,
+					"kelas"=>$post_kelas,
 					"foto"=>$uploadfile,
 					"group_id"=>2
 				));
@@ -35,7 +53,7 @@
 					"nip"=>$post_nis,
 					"nama"=>$post_nama,
 					"kontak"=>$post_kontak,
-					"email"=>$post_email,
+					"kelas"=>$post_kelas,
 					"foto"=>"/files/users.png",
 					"group_id"=>2
 				));
@@ -53,7 +71,7 @@
 						"nip"=>$post_nis,
 						"nama"=>$post_nama,
 						"kontak"=>$post_kontak,
-						"email"=>$post_email,
+						"kelas"=>$post_kelas,
 						"foto"=>$uploadfile,
 						"group_id"=>2
 					), "id=" . $pro->id);
@@ -63,7 +81,7 @@
 						"nip"=>$post_nis,
 						"nama"=>$post_nama,
 						"kontak"=>$post_kontak,
-						"email"=>$post_email,
+						"kelas"=>$post_kelas,
 						"group_id"=>2
 					), "id=" . $pro->id);
 			    }			
