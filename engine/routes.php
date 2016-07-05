@@ -26,4 +26,8 @@
 			'C'=>'modules/modul_indikator.php',
 			'V'=>'templates/modul_indikator.php'
 		),
+		'tes'=>array(
+			'C'=>'modules/modul_tes.php',
+			'V'=>'templates/modul_tes.php'
+		),
 	);

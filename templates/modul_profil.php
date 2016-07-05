@@ -52,11 +52,16 @@
             </form>
         </div>
         <div class="col-md-6">
-            <form method="post" class="form-horizontal">
+            <form method="post" class="form-horizontal" enctype="multipart/form-data">
                 <input type="hidden" name="profil" value="1">
                 <div class="panel panel-default">
                     <div class="panel-heading"><label>Data Profil</label></div>
                     <div class="panel-body">
+                        <div class="form-group">
+                            <div class="col-md-12 col-md-offset-4">
+                                <img src=".<?php echo empty($profil) ? "/files/users.png":$profil->foto ?>" width="70px" />
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-md-4"> NIP</label>
                             <div class="col-md-8">
@@ -79,6 +84,12 @@
                             <label class="col-md-4"> Email</label>
                             <div class="col-md-8">
                                 <input type="email" name="email" placeholder="Email" class="form-control" value="<?php echo empty($profil) ? "":$profil->email ?>" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4"> Foto</label>
+                            <div class="col-md-8">
+                                <input type="file" name="foto" placeholder="Foto" class="form-control"/>
                             </div>
                         </div>
                     </div>
