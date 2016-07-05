@@ -128,6 +128,7 @@
     <script type="text/javascript">
         $(document).ready( function() {
             $('#table-data').DataTable( {
+                // "pageLength": 1,
                 "bLengthChange": false,
                 "aoColumnDefs": [
                     { 'bSortable': false, 'aTargets': [ 5 ] }

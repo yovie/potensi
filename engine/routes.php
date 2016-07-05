@@ -22,4 +22,8 @@
 			'C'=>'modules/modul_datasiswa.php',
 			'V'=>'templates/modul_datasiswa.php'
 		),
+		'data_indikator'=>array(
+			'C'=>'modules/modul_indikator.php',
+			'V'=>'templates/modul_indikator.php'
+		),
 	);
