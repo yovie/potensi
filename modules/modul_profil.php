@@ -31,23 +31,30 @@
 		    	$path_foto = $uploadfile;
 		    }
 
+		    $datanya = array(
+				"nip"=>$post_nip,
+				"nama"=>$post_nama,
+				"kontak"=>$post_kontak,
+				"email"=>$post_email,
+				"foto"=>$path_foto
+			);
+
+			if( isset($post_tempat_lahir) )
+				$datanya[ "tempat_lahir" ] = $post_tempat_lahir;
+			if( isset($post_tanggal_lahir) )
+				$datanya[ "tanggal_lahir" ] = $post_tanggal_lahir;
+			if( isset($post_etnis) )
+				$datanya[ "etnis" ] = $post_etnis;
+			if( isset($post_sekolah) )
+				$datanya[ "sekolah" ] = $post_sekolah;
+			if( isset($post_kelas) )
+				$datanya[ "kelas" ] = $post_kelas;
+
 			if( empty($ck) ) {
-				$ref_id = insert( "profiles", array(
-					"nip"=>$post_nip,
-					"nama"=>$post_nama,
-					"kontak"=>$post_kontak,
-					"email"=>$post_email,
-					"foto"=>$path_foto
-				));
+				$ref_id = insert( "profiles", $datanya );
 				update( "users", array( "ref_id"=>$ref_id ), "id=". $user_session->id);
 			} else {
-				update( "profiles", array(
-					"nip"=>$post_nip,
-					"nama"=>$post_nama,
-					"kontak"=>$post_kontak,
-					"email"=>$post_email,
-					"foto"=>$path_foto
-				), "id=". $user_session->id);
+				update( "profiles", $datanya, "id=". $user_session->id);
 			}
 		}
 		redirect( "profile" );

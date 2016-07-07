@@ -10,7 +10,13 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                Aplikasi ini digunakan untuk mengukur sejauh mana kompetensi siswa ...
+                <div class="col-md-12">
+                <?php if( $user_session->group_id==USER_GURU ): ?>
+                    Aplikasi ini digunakan untuk mengukur sejauh mana kompetensi siswa ...
+                <?php else: ?>
+                    <a href="tes" class="btn btn-success btn-lg">Mulai Tes &nbsp <i class="fa fa-play"></i> </a>
+                <?php endif; ?>
+                </div>
             </div>
             
 

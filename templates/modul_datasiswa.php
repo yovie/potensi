@@ -17,7 +17,7 @@
             <table class="table table-bordered" id="table-data">
                 <thead>
                     <tr>
-                        <th width="10px">No</th><th>NIS</th><th>Nama</th><th>Kontak</th><th>Kelas</th><th width="150px">Aksi</th>
+                        <th width="10px">No</th><th>NIS</th><th>Nama</th><th>Kontak</th><th>Kelas</th><th>Sekolah</th><th width="150px">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,6 +31,7 @@
                         <td><?php echo $item->nama ?></td>
                         <td><?php echo $item->kontak ?></td>
                         <td><?php echo $item->kelas ?></td>
+                        <td><?php echo $item->sekolah ?></td>
                         <td align="center">
                             <button class="btn btn-xs <?php echo empty($item->have_account) ? "btn-default":"btn-success"; ?>"  data-toggle="modal" data-target="#login-info" data-info='<?php echo json_encode($item); ?>' >login info</button>
                             <button class="btn btn-xs btn-warning" data-toggle="modal" data-target="#tambah-siswa" data-info='<?php echo json_encode($item); ?>'>ubah</button>
@@ -67,15 +68,45 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-md-3">Tempat Lahir</label>
+                            <div class="col-md-7">
+                                <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat lahir" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Tanggal Lahir</label>
+                            <div class="col-md-5">
+                                <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal lahir" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Etnis</label>
+                            <div class="col-md-8">
+                                <input type="text" name="etnis" class="form-control" placeholder="Etnis" />
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-3">Kontak</label>
                             <div class="col-md-5">
                                 <input type="text" name="kontak" class="form-control" placeholder="Kontak" />
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-md-3">Email</label>
+                            <div class="col-md-7">
+                                <input type="email" name="email" class="form-control" placeholder="Email" />
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-3">Kelas</label>
                             <div class="col-md-7">
                                 <input type="text" name="kelas" class="form-control" placeholder="Kelas" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3">Sekolah</label>
+                            <div class="col-md-9">
+                                <input type="text" name="sekolah" class="form-control" placeholder="Sekolah" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -131,7 +162,7 @@
                 // "pageLength": 1,
                 "bLengthChange": false,
                 "aoColumnDefs": [
-                    { 'bSortable': false, 'aTargets': [ 5 ] }
+                    { 'bSortable': false, 'aTargets': [ 6 ] }
                 ]
             } );
         } );
@@ -143,16 +174,26 @@
                 $('input[name=id]').val( inf.id );
                 $('input[name=nis]').val( inf.nip );
                 $('input[name=nama]').val( inf.nama );
+                $('input[name=tempat_lahir]').val( inf.tempat_lahir );
+                $('input[name=tanggal_lahir]').val( inf.tanggal_lahir );
+                $('input[name=etnis]').val( inf.etnis );
                 $('input[name=kontak]').val( inf.kontak );
+                $('input[name=email]').val( inf.email );
                 $('input[name=kelas]').val( inf.kelas );
+                $('input[name=sekolah]').val( inf.sekolah );
                 $('#for-photo').find('img').remove();
                 $('#for-photo').prepend('<img src=".' + inf.foto +'" height="70px" style="margin:10px" />');
             } else {
                 $('input[name=id]').val( '' );
                 $('input[name=nis]').val( '' );
                 $('input[name=nama]').val( '' );
+                $('input[name=tempat_lahir]').val( '' );
+                $('input[name=tanggal_lahir]').val( '' );
+                $('input[name=etnis]').val( '' );
                 $('input[name=kontak]').val( '' );
                 $('input[name=email]').val( '' );
+                $('input[name=kelas]').val( '' );
+                $('input[name=sekolah]').val( '' );
                 $('#for-photo').find('img').remove();
             }
             $('input[name=nis]').focus();

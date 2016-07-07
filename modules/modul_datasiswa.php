@@ -43,8 +43,13 @@
 		      	$pro = insert( "profiles", array(
 					"nip"=>$post_nis,
 					"nama"=>$post_nama,
+					"tempat_lahir"=>$post_tempat_lahir,
+					"tanggal_lahir"=>$post_tanggal_lahir,
+					"etnis"=>$post_etnis,
 					"kontak"=>$post_kontak,
+					"email"=>$post_email,
 					"kelas"=>$post_kelas,
+					"sekolah"=>$post_sekolah,
 					"foto"=>$uploadfile,
 					"group_id"=>2
 				));
@@ -52,8 +57,13 @@
 		       	$pro = insert( "profiles", array(
 					"nip"=>$post_nis,
 					"nama"=>$post_nama,
+					"tempat_lahir"=>$post_tempat_lahir,
+					"tanggal_lahir"=>$post_tanggal_lahir,
+					"etnis"=>$post_etnis,
 					"kontak"=>$post_kontak,
+					"email"=>$post_email,
 					"kelas"=>$post_kelas,
+					"sekolah"=>$post_sekolah,
 					"foto"=>"/files/users.png",
 					"group_id"=>2
 				));
@@ -70,8 +80,13 @@
 			      	update( "profiles", array(
 						"nip"=>$post_nis,
 						"nama"=>$post_nama,
+						"tempat_lahir"=>$post_tempat_lahir,
+						"tanggal_lahir"=>$post_tanggal_lahir,
+						"etnis"=>$post_etnis,
 						"kontak"=>$post_kontak,
+						"email"=>$post_email,
 						"kelas"=>$post_kelas,
+						"sekolah"=>$post_sekolah,
 						"foto"=>$uploadfile,
 						"group_id"=>2
 					), "id=" . $pro->id);
@@ -80,8 +95,13 @@
 			       	update( "profiles", array(
 						"nip"=>$post_nis,
 						"nama"=>$post_nama,
+						"tempat_lahir"=>$post_tempat_lahir,
+						"tanggal_lahir"=>$post_tanggal_lahir,
+						"etnis"=>$post_etnis,
 						"kontak"=>$post_kontak,
+						"email"=>$post_email,
 						"kelas"=>$post_kelas,
+						"sekolah"=>$post_sekolah,
 						"group_id"=>2
 					), "id=" . $pro->id);
 			    }			

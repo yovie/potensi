@@ -54,7 +54,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href=""><?php echo APPLICATION_TITLE ?></a>
+                <a class="navbar-brand" href="home"><?php echo APPLICATION_TITLE ?></a>
             </div>
             <!-- /.navbar-header -->
 
