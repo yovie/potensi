@@ -30,4 +30,12 @@
 			'C'=>'modules/modul_tes.php',
 			'V'=>'templates/modul_tes.php'
 		),
+		'profil_kelompok'=>array(
+			'C'=>'modules/modul_fk.php',
+			'V'=>'templates/modul_fk.php'
+		),
+		'profil_individu'=>array(
+			'C'=>'modules/modul_fi.php',
+			'V'=>'templates/modul_fi.php'
+		)
 	);
