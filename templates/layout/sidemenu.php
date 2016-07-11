@@ -38,6 +38,15 @@
                         <li>
                             <a href="tes"><i class="fa fa-dashboard fa-fw"></i> Tes</a>
                         </li>
+                            <?php if( $module_link=="tes" ): ?>
+                            <li class="sidebar-search">
+                                <div class="input-group">
+                                    <p>Waktu mulai : <span class="waktu_mulai"></span> </p>
+                                    <p>Sudah dijawab : <span class="sudah_dijawab"></span></p>
+                                    <p>Belum dijawab : <span class="belum_dijawab"></span></p>
+                                </div>
+                            </li>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </ul>
                 </div>
