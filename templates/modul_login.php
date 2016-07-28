@@ -33,13 +33,12 @@
 							<p>Herdi, M.Pd</p>
 						</div>
 						<div class="panel-body">
-							<?php $msg = get_flashmessage(); if( !empty($msg) ): 
-								if( $msg['result']==false ): ?>
-								<div class="panel panel-danger" id="message">
-									<div class="panel-heading">Login gagal</div>
+							<?php $msg = get_flashmessage(); if( !empty($msg) ): ?>
+								<div class="panel panel-<?php echo ( $msg['status']==false )?'danger':'success' ?>" id="message">
+									<div class="panel-heading"><?php echo $msg['title'] ?></div>
 									<div class="panel-body text-center"><p><?php echo $msg['message'] ?></p></div>
 								</div>
-							<?php endif;endif; ?>
+							<?php endif; ?>
 								<p><strong>Petunjuk Pengisian</strong></p>
 								<ol>
 									<li><p>Para peserta didik yang baik hati, ke hadapan Anda disajikan 43 butir pernyataan. Anda diminta untuk memilih salah satu dari empat alternatif jawaban yang menurut Anda paling sesuai dengan diri Anda pada saat sekarang ini dengan cara menghitamkan. Alternatif jawaban yang disediakan, yaitu :</p>
@@ -79,6 +78,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<form method="post" class="form-horizontal">
+									<input type="hidden" name="login" value="1" />
 									<div class="form-group">
 										<div class="col-md-12">
 											<input type="text" name="username" class="form-control input-sm chat-input" placeholder="username" required />
@@ -113,6 +113,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<form method="post" class="form-horizontal">
+									<input type="hidden" name="register" value="1" />
 									<div class="form-group">
 			                            <label class="col-md-3">NIS</label>
 			                            <div class="col-md-5">
@@ -128,25 +129,25 @@
 			                        <div class="form-group">
 			                            <label class="col-md-3">Kelas</label>
 			                            <div class="col-md-5">
-			                                <input type="text" name="kelas" class="form-control" placeholder="Kelas" />
+			                                <input type="text" name="kelas" class="form-control" placeholder="Kelas" required />
 			                            </div>
 			                        </div>
 			                        <div class="form-group">
 			                            <label class="col-md-3">Username</label>
 			                            <div class="col-md-6">
-			                                <input type="text" name="uname" class="form-control" placeholder="Username" />
+			                                <input type="text" name="uname" class="form-control" placeholder="Username"  required />
 			                            </div>
 			                        </div>
 			                        <div class="form-group">
 			                            <label class="col-md-3">Password</label>
 			                            <div class="col-md-6">
-			                                <input type="password" name="pwd1" class="form-control" placeholder="Password" />
+			                                <input type="password" name="pwd1" class="form-control" placeholder="Password"  required />
 			                            </div>
 			                        </div>
 			                        <div class="form-group">
 			                            <label class="col-md-3">Password lagi</label>
 			                            <div class="col-md-6">
-			                                <input type="password" name="pwd2" class="form-control" placeholder="Password lagi" />
+			                                <input type="password" name="pwd2" class="form-control" placeholder="Password lagi"  required />
 			                            </div>
 			                        </div>
 			                        <div class="form-group">	 
