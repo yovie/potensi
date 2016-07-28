@@ -10,6 +10,8 @@
 				md5($post_password) ) );
 		if( $user ) {
 			set_session( $user );
-			redirect( "home" );
+		} else {
+			set_flashmessage( array("status"=>false, "message"=>"Periksa kembali username dan password anda") );
 		}
+		redirect( "home" );
 	}
