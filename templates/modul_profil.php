@@ -1,5 +1,13 @@
 <?php include "layout/header.php"; ?>
-<?php include "layout/sidemenu.php"; ?>
+
+<?php if( $user_session->group_id==USER_SISWA ): ?>
+        </div>
+</nav>
+
+<div class="container">
+<?php else: ?>
+    <?php include "layout/sidemenu.php"; ?>
+<?php endif; ?>
 
 	
     <div class="row">

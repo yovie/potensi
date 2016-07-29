@@ -22,28 +22,39 @@
 		update( "tes", array(
 			"selesai"=>time()
 		), "id=" . $post_tes_id );
-		die;
 	}
 
 	$test = select_one( "tes", "user_id=" . $user_session->id );
-	if( empty($test) ) {
-		$test_id = insert( "tes", array(
-			"user_id"=>$user_session->id,
-			"mulai"=>time()
-		));
+	if(!isset($get_soal)) {
+		if( empty($test) ) {
+			$test_id = insert( "tes", array(
+				"user_id"=>$user_session->id,
+				"mulai"=>time()
+			));
+		} else {
+			update( "tes", array(
+				"mulai"=>time()
+			), "id=" . $test->id);
+			$test_id = $test->id;
+		}
+		$get_soal = 1;
 	} else {
-		update( "tes", array(
-			"mulai"=>time()
-		), "id=" . $test->id);
 		$test_id = $test->id;
 	}
 
-	$pertanyaan = select( "pertanyaan", "jenis='pertanyaan' ORDER BY 
-		standar_kompetensi_id ASC, kompetensi_id ASC, indikator_id ASC" );
-	$jawaban = select( "jawaban");
-
-	$old = select( "tes_jawaban", "tes_id=$test_id");
-	$sebelumnya = array();
-	foreach($old as $ol) {
-		$sebelumnya[ $ol->tes_id ][ $ol->pertanyaan_id ] = $ol;
+	$jumlah = query_one( "select count(*) as soal from pertanyaan where jenis='pertanyaan'" );
+	if( $get_soal==1 ) {
+		$back = -1;
+		$next = 2;
+	} elseif ( $get_soal==$jumlah->soal-1 ) {
+		$back = $get_soal-1;
+		$next = -1;
+	} else {
+		$back = $get_soal-1;
+		$next = $get_soal+1;
 	}
+
+	$pertanyaan = select_one( "pertanyaan", "jenis='pertanyaan' ORDER BY 
+		standar_kompetensi_id ASC, kompetensi_id ASC, indikator_id ASC LIMIT $get_soal,1" );
+	$jawaban = select_one( "tes_jawaban", "tes_id=$test_id AND pertanyaan_id=" . $pertanyaan->id);
+	$jenis_jawaban = query( "select * from jawaban order by id desc");

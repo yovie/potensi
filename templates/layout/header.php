@@ -39,6 +39,20 @@
     <!-- jQuery -->
     <script src="./assets/js/jquery/dist/jquery.min.js"></script>
 
+    <style type="text/css">
+        .navbar-warna {
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #337ab7;
+        }
+        .navbar-warna .navbar-brand, .navbar-warna .navbar-brand:hover, .navbar-warna a{
+            color: #fff;
+        }
+        .navbar-warna a:hover, .sidebar-nav a{
+            color: #337ab7;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -46,7 +60,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top navbar-warna" role="navigation" style="margin-bottom: 0;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -61,7 +75,7 @@
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="">
-                         <i class="fa fa-user fa-fw"></i> <?php echo $user_session->username ?>  <i class="fa fa-caret-down"></i>
+                         <i class="fa fa-user fa-fw"></i> <?php echo $user_session->profile->nama ?>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="profile"><i class="fa fa-user fa-fw"></i> User Profile</a>

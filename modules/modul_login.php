@@ -11,6 +11,8 @@
 				sprintf( " username='%s' AND password='%s'", $post_username, 
 					md5($post_password) ) );
 			if( $user ) {
+				$profil = select_one( "profiles", "id=" . $user->ref_id);
+				$user->{"profile"} = $profil;
 				set_session( $user );
 			} else {
 				set_flashmessage( array("status"=>false, "message"=>"Periksa kembali username dan password anda", "title"=>"Login gagal") );

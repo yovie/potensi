@@ -9,6 +9,7 @@
 		$group = select_one('groups', 'id=' . $args->group_id);
 		$_SESSION['group_name'] = $group->groups;
 		$_SESSION['ref_id'] = $args->ref_id;
+		$_SESSION['profile'] = $args->profile;
 	}
 	
 	function get_session(){
@@ -18,7 +19,8 @@
 				'username'=>$_SESSION['username'],
 				'group_id'=>$_SESSION['group_id'],
 				'group_name'=>$_SESSION['group_name'],
-				'ref_id'=>$_SESSION['ref_id']
+				'ref_id'=>$_SESSION['ref_id'],
+				'profile'=>$_SESSION['profile']
 			);
 		else return (object)array(
 				'id'=>'',
