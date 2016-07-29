@@ -175,6 +175,14 @@
 				}, 3000);
 			}
 
+			$('#form-login').on('shown.bs.modal', function (e) {
+			    $('input[name=username]').focus();
+			} );
+
+			$('#form-signup').on('shown.bs.modal', function (e) {
+			    $('input[name=nis]').focus();
+			} );
+
 			tutup();
 		</script>
 	</body>

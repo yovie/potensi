@@ -54,7 +54,7 @@
 				$ref_id = insert( "profiles", $datanya );
 				update( "users", array( "ref_id"=>$ref_id ), "id=". $user_session->id);
 			} else {
-				update( "profiles", $datanya, "id=". $user_session->id);
+				update( "profiles", $datanya, "id=". $user_session->ref_id);
 			}
 		}
 		redirect( "profile" );
