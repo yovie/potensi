@@ -37,5 +37,14 @@
 		'profil_individu'=>array(
 			'C'=>'modules/modul_fi.php',
 			'V'=>'templates/modul_fi.php'
+		),
+
+		'hasil_tes'=>array(
+			'C'=>'modules/hasiltes.php',
+			'V'=>'templates/hasiltes.php'
+		),
+		'kompetensi_karir'=>array(
+			'C'=>'modules/kompetensikarir.php',
+			'V'=>'templates/kompetensikarir.php'
 		)
 	);
