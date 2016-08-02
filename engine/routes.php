@@ -8,7 +8,7 @@
 		),
 		'login'=>array(
 			'C'=>'modules/modul_login.php',
-			'V'=>'templates/modul_login.php'
+			'V'=>'templates/modul_new_login.php'
 		),
 		'profile'=>array(
 			'C'=>'modules/modul_profil.php',
