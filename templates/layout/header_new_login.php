@@ -9,7 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Grayscale - Start Bootstrap Theme</title>
+    <title>Skala Kompetensi Karir Siswa SMP</title>
+
+    <link rel="icon" href="unj.png" type="image/x-icon" />
 
     <!-- Bootstrap Core CSS -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +43,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i>  <span class="light">TES</span> SKALA KOMPETENSI KARIR SISWA SMP
+                    <img src="unj.png" width="30px" style="float:left;margin:-5px 10px 0 0;" />  <span class="light"></span> SKALA KOMPETENSI KARIR SISWA SMP
                 </a>
             </div>
 
@@ -71,9 +73,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading" style="font-size:30pt;">TES SKALA <br/>KOMPETENSI KARIR SISWA SMP</h1>
-                        <!-- <p class="intro-text"></p>
-                        <a href="#about" class="btn btn-circle page-scroll">
+                        <h1 class="brand-heading" style="font-size:30pt;">Selamat Datang</h1>
+                        <p class="intro-text">di<br/>Aplikasi Skala Kompetensi Karir Siswa SMP</p>
+                        <!--<a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a> -->
                     </div>
@@ -225,6 +227,24 @@
 				</div>
 			</div>
 		</div>
+
+	<script type="text/javascript">
+			function tutup() {
+				setTimeout(function(){
+					$('#message').fadeOut('slow');
+				}, 3000);
+			}
+
+			$('#form-login').on('shown.bs.modal', function (e) {
+			    $('input[name=username]').focus();
+			} );
+
+			$('#form-signup').on('shown.bs.modal', function (e) {
+			    $('input[name=nis]').focus();
+			} );
+
+			tutup();
+	</script>
 
 </body>
 
