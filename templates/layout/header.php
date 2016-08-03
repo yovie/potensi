@@ -11,6 +11,8 @@
 
     <title><?php echo APPLICATION_NICK ?></title>
 
+    <link rel="icon" href="unj.png" type="image/x-icon" />
+
     <!-- Bootstrap Core CSS -->
     <link href="./assets/js/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 

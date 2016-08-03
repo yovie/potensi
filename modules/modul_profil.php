@@ -34,20 +34,21 @@
 		    $datanya = array(
 				"nip"=>$post_nip,
 				"nama"=>$post_nama,
+				"jenis_kelamin"=>$post_jenis_kelamin,
 				"kontak"=>$post_kontak,
 				"email"=>$post_email,
 				"foto"=>$path_foto
 			);
 
-			if( isset($post_tempat_lahir) )
+			if( !empty($post_tempat_lahir) )
 				$datanya[ "tempat_lahir" ] = $post_tempat_lahir;
-			if( isset($post_tanggal_lahir) )
+			if( !empty($post_tanggal_lahir) )
 				$datanya[ "tanggal_lahir" ] = $post_tanggal_lahir;
-			if( isset($post_etnis) )
+			if( !empty($post_etnis) )
 				$datanya[ "etnis" ] = $post_etnis;
-			if( isset($post_sekolah) )
+			if( !empty($post_sekolah) )
 				$datanya[ "sekolah" ] = $post_sekolah;
-			if( isset($post_kelas) )
+			if( !empty($post_kelas) )
 				$datanya[ "kelas" ] = $post_kelas;
 
 			if( empty($ck) ) {

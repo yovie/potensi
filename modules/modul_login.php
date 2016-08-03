@@ -27,6 +27,7 @@
 				$pro = insert( "profiles", array(
 					"nip"=>$post_nis,
 					"nama"=>$post_nama,
+					"jenis_kelamin"=>$post_jenis_kelamin,
 					"kelas"=>$post_kelas,
 					"foto"=>"/files/users.png",
 					"group_id"=>2

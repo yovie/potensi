@@ -192,6 +192,15 @@
 			                            </div>
 			                        </div>
 			                        <div class="form-group">
+			                            <label class="col-md-3"  style="color:#555;">Jenis Kelamin</label>
+			                            <div class="col-md-5">
+			                                <select name="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin" required>
+			                                	<option value="Laki-laki">Laki-laki</option>
+			                                	<option value="Perempuan">Perempuan</option>
+			                                </select>
+			                            </div>
+			                        </div>
+			                        <div class="form-group">
 			                            <label class="col-md-3"  style="color:#555;">Kelas</label>
 			                            <div class="col-md-5">
 			                                <input type="text" name="kelas" class="form-control" placeholder="Kelas" required />

@@ -43,6 +43,7 @@
 		      	$pro = insert( "profiles", array(
 					"nip"=>$post_nis,
 					"nama"=>$post_nama,
+					"jenis_kelamin"=>$post_jenis_kelamin,
 					"tempat_lahir"=>$post_tempat_lahir,
 					"tanggal_lahir"=>$post_tanggal_lahir,
 					"etnis"=>$post_etnis,
@@ -57,6 +58,7 @@
 		       	$pro = insert( "profiles", array(
 					"nip"=>$post_nis,
 					"nama"=>$post_nama,
+					"jenis_kelamin"=>$post_jenis_kelamin,
 					"tempat_lahir"=>$post_tempat_lahir,
 					"tanggal_lahir"=>$post_tanggal_lahir,
 					"etnis"=>$post_etnis,
@@ -80,6 +82,7 @@
 			      	update( "profiles", array(
 						"nip"=>$post_nis,
 						"nama"=>$post_nama,
+						"jenis_kelamin"=>$post_jenis_kelamin,
 						"tempat_lahir"=>$post_tempat_lahir,
 						"tanggal_lahir"=>$post_tanggal_lahir,
 						"etnis"=>$post_etnis,
@@ -95,6 +98,7 @@
 			       	update( "profiles", array(
 						"nip"=>$post_nis,
 						"nama"=>$post_nama,
+						"jenis_kelamin"=>$post_jenis_kelamin,
 						"tempat_lahir"=>$post_tempat_lahir,
 						"tanggal_lahir"=>$post_tanggal_lahir,
 						"etnis"=>$post_etnis,

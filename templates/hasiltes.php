@@ -33,7 +33,9 @@
                         <td><?php echo $item->kelas ?></td>
                         <td><?php echo $item->sekolah ?></td>
                         <td align="center">
-                           <button class="btn btn-success btn-xs" onclick="buka(<?php echo $item->id ?>);" > <i class="fa fa-bar-chart"></i> Kompetensi Karir</button>
+                           <button class="btn btn-success btn-xs" onclick="buka(<?php echo $item->id ?>);"  <?php
+                           if( !$item->have_tes ) echo " disabled ";
+                            ?> > <i class="fa fa-bar-chart"></i> Kompetensi Karir</button>
                         </td>
                     </tr>
                     <?php endforeach;?>

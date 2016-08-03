@@ -82,6 +82,19 @@
                                 <input type="text" name="nama" placeholder="Nama" class="form-control" value="<?php echo empty($profil) ? "":$profil->nama ?>" >
                             </div>
                         </div>
+                        <div class="form-group">
+                                        <label class="col-md-3"  style="color:#555;">Jenis Kelamin</label>
+                                        <div class="col-md-5">
+                                            <select name="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin" required>
+                                                <option value="Laki-laki" <?php if(!empty($profil)) {
+                                                    echo $profil->jenis_kelamin=="Laki-laki"?"selected":"";
+                                                    } ?> >Laki-laki</option>
+                                                <option value="Perempuan" <?php if(!empty($profil)) {
+                                                    echo $profil->jenis_kelamin=="Perempuan"?"selected":"";
+                                                    } ?> >Perempuan</option>
+                                            </select>
+                                        </div>
+                        </div>
                         <?php if( $user_session->group_id==USER_SISWA ): ?>
                             <div class="form-group">
                                 <label class="col-md-3">Tempat Lahir</label>

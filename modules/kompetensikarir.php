@@ -17,13 +17,17 @@
 	// $siswa = select_one( "profiles", "id=" . $get_siswa );
 	$siswa = null;
 
-	$tes  = query("select * from tes group by user_id");
+	$tes  = query("select * from tes group by user_id, id");
 
 	$total = 0;
 	$total_a = 0;
 	$total_b = 0;
 	$total_c = 0;
 	$total_r = 0;
+
+	// echo '<pre>';
+	// print_r($tes);
+	// echo '</pre>';
 
 	foreach($tes as &$tt) {
 		$tt->{"profile"} = query_one( "select p.* from users u 

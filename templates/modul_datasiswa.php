@@ -68,6 +68,16 @@
                             </div>
                         </div>
                         <div class="form-group">
+                                        <label class="col-md-3"  style="color:#555;">Jenis Kelamin</label>
+                                        <div class="col-md-5">
+                                            <select name="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin" required>
+                                                <option value=""></option>
+                                                <option value="Laki-laki">Laki-laki</option>
+                                                <option value="Perempuan">Perempuan</option>
+                                            </select>
+                                        </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-3">Tempat Lahir</label>
                             <div class="col-md-7">
                                 <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat lahir" required />
@@ -174,6 +184,7 @@
                 $('input[name=id]').val( inf.id );
                 $('input[name=nis]').val( inf.nip );
                 $('input[name=nama]').val( inf.nama );
+                $('select[name=jenis_kelamin]').val( inf.jenis_kelamin );
                 $('input[name=tempat_lahir]').val( inf.tempat_lahir );
                 $('input[name=tanggal_lahir]').val( inf.tanggal_lahir );
                 $('input[name=etnis]').val( inf.etnis );
@@ -187,6 +198,7 @@
                 $('input[name=id]').val( '' );
                 $('input[name=nis]').val( '' );
                 $('input[name=nama]').val( '' );
+                $('select[name=jenis_kelamin]').val( '' );
                 $('input[name=tempat_lahir]').val( '' );
                 $('input[name=tanggal_lahir]').val( '' );
                 $('input[name=etnis]').val( '' );
