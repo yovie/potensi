@@ -33,7 +33,7 @@
             <?php endif; ?>
 
             <div class="panel panel-danger" id="panel-pertanyaan">
-                <div class="panel-heading">Pertanyaan ke <?php echo $get_soal ?></div>
+                <div class="panel-heading">Pernyataan ke-<?php echo $get_soal ?></div>
                 <div class="panel-body">
                     <form method="post" class="form-horizontal form-isian">
                         <input type="hidden" name="soal_ke" value="<?php echo $get_soal ?>" />
