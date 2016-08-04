@@ -4,6 +4,8 @@
     </div>
     <!-- /#wrapper -->
 
+    <iframe id="printf" name="printf" style="display:none"></iframe>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="./assets/js/bootstrap/dist/js/bootstrap.min.js"></script>
 

@@ -6,14 +6,11 @@
     <script src="./assets/js/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="./assets/js/datatables/media/js/dataTables.bootstrap.min.js"></script>
     <script src="./assets/js/canvasjs.min.js"></script>
-	
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Profil Kompetensi Karir</h1>
-        </div>
-    </div>
     
-    <div class="row">
+    <div class="row" id="kontenHtml">
+        <div class="col-lg-12">
+            <h3 class="page-header text-center">Profil Kompetensi Karir</h3>
+        </div>
         <div class="col-md-6">
             <div class="form-group">
                 <label class="col-md-6">Nama</label>
@@ -88,18 +85,61 @@
                 </tbody>
             </table>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <button class="btn btn-success" onclick="window.open('kompetensi_karir?siswa=<?php echo $get_siswa ?>&export=1')"> <i class="fa fa-file-pdf-o"></i> &nbsp; Ekspor</button>
-            <br/>
-            <br/>
-        </div>
-    </div>
-
+        <script type="text/javascript">
+        function cetak() {
+            var doc = window.frames["printf"];
+            if( doc.document ) {
+                doc.document.body.innerHTML = ""; //Chrome, IE
+            }else {
+                doc.contentDocument.body.innerHTML = ""; //FireFox
+            }
+            var res = $('#kontenHtml').html();
             
-    <script type="text/javascript">
+            var canvas = $("#chartContainer3").find('canvas').get(0);
+            var img    = canvas.toDataURL("image/png");
+
+            doc.document.write(
+                "<center><strong>Profil Kompetensi Karir</strong></center><hr style=\"\"/><br/>"
+                + "<table border=\"0\" width=\"100%\">"
+                + "<tr>"
+                + "   <td>Nama</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->nama ?></td>"
+                + "   <td>Sekolah</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->sekolah ?></td>"
+                + "</tr>"
+                + "<tr>"
+                + "   <td>Tempat/Tgl. lahir</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->tempat_lahir."/".$siswa->profil->tanggal_lahir ?></td>"
+                + "   <td>Etnis</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->etnis ?></td>"
+                + "</tr>"
+                + "<tr>"
+                + "   <td>Jenis kelamin</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->jenis_kelamin ?></td>"
+                + "   <td>Tanggal test</td><td width=\"2px\">:</td><td><?php echo date("d-M-Y h:i:s", $siswa->mulai) ?></td>"
+                + "</tr>"
+                + "<tr>"
+                + "   <td>Nomor induk siswa</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->nip ?></td>"
+                + "   <td>No. HP/Email</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->kontak." / ".$siswa->profile->email ?></td>"
+                + "</tr>"
+                + "</table> <br/>"
+            );
+
+            doc.document.write( '<img src="' + img + '" />' );
+
+            doc.document.write( '<table border="1" cellpadding="5" cellspacing="0" width="100%">' 
+                + '<tr>'
+                + ' <td></td> <td>KK</td> <td>SK A</td> <td>SK B</td> <td>SK C</td> <td>RK</td>'
+                + '</tr>'
+                + '<tr>'
+                + ' <td> <div style="width:20px;height:20px;background:#F08080;float:left;margin-right:10px;"></div> Kelompok</td> <td><?php echo sprintf("%.2f", $tes['rata_total']) ?></td> <td><?php echo sprintf("%.2f", $tes['rata_total_a']) ?></td> <td><?php echo sprintf("%.2f", $tes['rata_total_b']) ?></td> <td><?php echo sprintf("%.2f", $tes['rata_total_c']) ?></td> <td><?php echo sprintf("%.2f", $tes['rata_total_r']) ?></td>'
+                + '</tr>'
+                + '<tr>'
+                + ' <td> <div style="width:20px;height:20px;background:#20B2AA;float:left;margin-right:10px;"></div> Individu</td> <td><?php echo sprintf("%.2f", $siswa->kompetensi_karir_individu) ?></td> <td><?php echo sprintf("%.2f", $siswa->kompetensi_karir_individu_a) ?></td> <td><?php echo sprintf("%.2f", $siswa->kompetensi_karir_individu_b) ?></td> <td><?php echo sprintf("%.2f", $siswa->kompetensi_karir_individu_c) ?></td> <td><?php echo sprintf("%.2f", $siswa->rata_kompetensi) ?></td>'
+                + '</tr>'
+                + '</table>'
+            );
+
+            doc.focus();
+            doc.print();
+        }
+
         $(document).ready( function() {
             var chart = new CanvasJS.Chart("chartContainer3", {
                 // title: {
@@ -160,6 +200,16 @@
             chart.render();
         } );
     </script>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-success" onclick="cetak()"> <i class="fa fa-print"></i> &nbsp; Cetak</button>
+            <br/>
+            <br/>
+        </div>
+    </div>
+
 
 
 <?php include "layout/footer.php"; ?>
