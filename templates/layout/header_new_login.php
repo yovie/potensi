@@ -37,7 +37,7 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container" style="background:#000;border-radius:10px;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
@@ -55,7 +55,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Tim</a>
+                        <a class="page-scroll" href="#about" >Tim</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
