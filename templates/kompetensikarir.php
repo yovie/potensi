@@ -92,7 +92,9 @@
 
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn-success">Ekspor</button>
+            <button class="btn btn-success" onclick="window.open('kompetensi_karir?siswa=<?php echo $get_siswa ?>&export=1')"> <i class="fa fa-file-pdf-o"></i> &nbsp; Ekspor</button>
+            <br/>
+            <br/>
         </div>
     </div>
 

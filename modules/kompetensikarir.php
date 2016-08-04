@@ -1,4 +1,15 @@
 <?php
+	include("./mpdf60/mpdf.php");
+	// error_reporting(E_ALL);
+
+	// 	$html = '<html> <head></head> <body>Data</body> </html>';
+		
+	// 	$mpdf = new mPDF(); 
+
+	// 	$mpdf->WriteHTML($html);
+	// 	$mpdf->Output();
+	// 	die;
+
 	if(!defined( "APPLICATION_BASE" )) die( "Error" );
 
 	if(!login())
@@ -7,6 +18,7 @@
 	if( !isset($get_siswa) ) {
 		redirect("hasil_tes");
 	}
+
 
 	$rentang = 4;
 
@@ -92,3 +104,15 @@
 	$tes["rata_total_b"] = $total_b;
 	$tes["rata_total_c"] = $total_c;
 	$tes["rata_total_r"] = $total_r;
+
+	if( isset($get_export) ) {
+		// error_reporting(E_NONE);
+
+		$html = '<html> <head></head> <body>Data</body> </html>';
+		
+		$mpdf = new mPDF('c'); 
+
+		// $mpdf->WriteHTML($html);
+		// $mpdf->Output();
+		die;
+	}
