@@ -107,7 +107,7 @@
                 + "   <td>Sekolah</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->sekolah ?></td>"
                 + "</tr>"
                 + "<tr>"
-                + "   <td>Tempat/Tgl. lahir</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->tempat_lahir."/".$siswa->profil->tanggal_lahir ?></td>"
+                + "   <td>Tempat/Tgl. lahir</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->tempat_lahir."/".$siswa->profile->tanggal_lahir ?></td>"
                 + "   <td>Etnis</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->etnis ?></td>"
                 + "</tr>"
                 + "<tr>"
