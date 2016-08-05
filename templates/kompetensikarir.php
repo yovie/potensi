@@ -140,6 +140,27 @@
             doc.print();
         }
 
+        function ekspor() {
+            var canvas = $("#chartContainer3").find('canvas').get(0);
+            var img    = canvas.toDataURL("image/png");
+            $('#imgChart').attr( 'src', img );
+            console.log($('#toPDF').html());
+            var newForm = jQuery('<form>', {
+                'action': 'kompetensi_karir?siswa=<?php echo $get_siswa ?>',
+                'target': '_blank',
+                'method': "post"
+            }).append(jQuery('<input>', {
+                'name': 'siswa',
+                'value': '<?php echo $get_siswa ?>',
+                'type': 'hidden'
+            })).append(jQuery('<input>', {
+                'name': 'konten',
+                'value': $('#toPDF').html(),
+                'type': 'hidden'
+            }));
+            newForm.submit();
+        }
+
         $(document).ready( function() {
             var chart = new CanvasJS.Chart("chartContainer3", {
                 // title: {
@@ -204,12 +225,55 @@
 
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn-success" onclick="cetak()"> <i class="fa fa-print"></i> &nbsp; Cetak</button>
+            <button class="btn btn-success" onclick="cetak()"> <i class="fa fa-print"></i> &nbsp; Cetak</button> &nbsp; 
+            <button class="btn btn-success" onclick="ekspor()"> <i class="fa fa-file-pdf-o"></i> &nbsp; Ekspor</button>
             <br/>
             <br/>
         </div>
     </div>
 
+
+    <div style="display:none" id="toPDF">
+        <p align="center"><strong>Profil Kompetensi Karir</strong></p><hr style=""/><br/>
+        <table border="0" width="100%">
+        <tr>
+           <td>Nama</td><td width="2px">:</td><td><?php echo $siswa->profile->nama ?></td>
+           <td>Sekolah</td><td width="2px">:</td><td><?php echo $siswa->profile->sekolah ?></td>
+        </tr>
+        <tr>
+           <td>Tempat/Tgl. lahir</td><td width="2px">:</td><td><?php echo $siswa->profile->tempat_lahir."/".$siswa->profile->tanggal_lahir ?></td>
+           <td>Etnis</td><td width="2px">:</td><td><?php echo $siswa->profile->etnis ?></td>
+        </tr>
+        <tr>
+           <td>Jenis kelamin</td><td width="2px">:</td><td><?php echo $siswa->profile->jenis_kelamin ?></td>
+           <td>Tanggal test</td><td width="2px">:</td><td><?php echo date("d-M-Y h:i:s", $siswa->mulai) ?></td>
+        </tr>
+        <tr>
+           <td>Nomor induk siswa</td><td width="2px">:</td><td><?php echo $siswa->profile->nip ?></td>
+           <td>No. HP/Email</td><td width="2px">:</td><td><?php echo $siswa->profile->kontak." / ".$siswa->profile->email ?></td>
+        </tr>
+        </table> <br/>
+
+        <img id="imgChart" />
+
+        <table border="1" cellpadding="5" cellspacing="0" width="100%">
+        <tr>
+            <td></td> <td>KK</td> <td>SK A</td> <td>SK B</td> <td>SK C</td> <td>RK</td>
+        </tr>
+        <tr>
+         <td> <span style="width:20px;height:20px;background:#F08080;margin-right:10px;float:left;border:solid 1px #f08080;">&nbsp; &nbsp; &nbsp; </span> Kelompok</td> <td><?php echo sprintf("%.2f", $tes['rata_total']) ?></td> <td><?php echo sprintf("%.2f", $tes['rata_total_a']) ?></td> <td><?php echo sprintf("%.2f", $tes['rata_total_b']) ?></td> <td><?php echo sprintf("%.2f", $tes['rata_total_c']) ?></td> <td><?php echo sprintf("%.2f", $tes['rata_total_r']) ?></td>
+        </tr>
+        <tr>
+         <td> <span style="width:20px;height:20px;background:#20B2AA;margin-right:10px;float:left;border:solid 1px #20b2aa;">&nbsp; &nbsp; &nbsp; </span> Individu</td> <td><?php echo sprintf("%.2f", $siswa->kompetensi_karir_individu) ?></td> <td><?php echo sprintf("%.2f", $siswa->kompetensi_karir_individu_a) ?></td> <td><?php echo sprintf("%.2f", $siswa->kompetensi_karir_individu_b) ?></td> <td><?php echo sprintf("%.2f", $siswa->kompetensi_karir_individu_c) ?></td> <td><?php echo sprintf("%.2f", $siswa->rata_kompetensi) ?></td>
+        </tr>
+        </table>
+
+        <style type="text/css">
+            .warna{
+                border: solid 5px #ff0000;
+            }
+        </style>
+    </div>
 
 
 <?php include "layout/footer.php"; ?>

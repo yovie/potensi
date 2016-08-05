@@ -93,3 +93,15 @@
 	$tes["rata_total_b"] = $total_b;
 	$tes["rata_total_c"] = $total_c;
 	$tes["rata_total_r"] = $total_r;
+
+	if( isset($post_siswa) ) {
+		include("./mpdf60/mpdf.php");
+
+		$html = $post_konten;
+
+		$mpdf = new mPDF('c'); 
+
+		$mpdf->WriteHTML($html);
+		$mpdf->Output();
+		die;
+	}
