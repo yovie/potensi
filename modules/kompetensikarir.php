@@ -101,7 +101,10 @@
 
 		$mpdf = new mPDF(); 
 
+		$siswa = select_one( "profiles", "id=" . $post_siswa );
+
+		$mpdf->SetTitle('Profil Kompetensi Karir');
 		$mpdf->WriteHTML($html);
-		$mpdf->Output();
+		$mpdf->Output('Profil Kompetensi Karir - ' . $siswa->nama . '.pdf', 'I');
 		die;
 	}
