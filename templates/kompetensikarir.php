@@ -97,7 +97,7 @@
             var res = $('#kontenHtml').html();
             
             var canvas = $("#chartContainer3").find('canvas').get(0);
-            var img    = canvas.toDataURL("image/png");
+            var img    = canvas.toDataURL("image/jpeg");
 
             doc.document.write(
                 "<center><strong>Profil Kompetensi Karir</strong></center><hr style=\"\"/><br/>"
@@ -142,7 +142,7 @@
 
         function ekspor() {
             var canvas = $("#chartContainer3").find('canvas').get(0);
-            var img    = canvas.toDataURL("image/png");
+            var img    = canvas.toDataURL("image/jpeg");
             $('#imgChart').attr( 'src', img );
             console.log($('#toPDF').html());
             var newForm = jQuery('<form>', {

@@ -99,7 +99,7 @@
 
 		$html = $post_konten;
 
-		$mpdf = new mPDF('c'); 
+		$mpdf = new mPDF(); 
 
 		$mpdf->WriteHTML($html);
 		$mpdf->Output();
