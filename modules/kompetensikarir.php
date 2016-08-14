@@ -113,6 +113,7 @@
 	}
 
 	if( isset($post_excel) ) {
+
 		error_reporting(E_ALL);
 		ini_set('display_errors', TRUE);
 		ini_set('display_startup_errors', TRUE);
@@ -123,7 +124,7 @@
 		$objPHPExcel = new PHPExcel();
 		$sheet = $objPHPExcel->getActiveSheet();
 		
-		$sheet->mergeCells('A1:E1');
+		$sheet->mergeCells('A1:F1');
 		$sheet->setCellValue('A1', 'Profil Kompetensi Karir');
 		$sheet->getStyle('A1')->getAlignment()->applyFromArray(
 		    array(
@@ -136,6 +137,7 @@
 		$sheet->getColumnDimension('C')->setWidth(20);
 		$sheet->getColumnDimension('D')->setWidth(20);
 		$sheet->getColumnDimension('E')->setWidth(20);
+		$sheet->getColumnDimension('F')->setWidth(20);
 		$sheet->getRowDimension('1')->setRowHeight(50);
 		$sheet->getStyle("A1")->getFont()->setBold(true);
 
@@ -156,6 +158,24 @@
 		$sheet->setCellValue('E4', ': ' . date("d-M-Y h:i:s", $siswa->mulai));
 		$sheet->setCellValue('D5', 'No.HP/Email');
 		$sheet->setCellValue('E5', ': ' . $siswa->profile->kontak." / ".$siswa->profile->email);
+
+		$str = "data:image/jpeg;base64,"; 
+		$data = str_replace($str,"", $post_chart); 
+		$data = base64_decode($data);
+		$im = imagecreatefromstring($data);
+
+		$objDrawing = new PHPExcel_Worksheet_MemoryDrawing();
+		$objDrawing->setName('Chart');
+		$objDrawing->setDescription('Chart');
+		$objDrawing->setImageResource($im);
+		$objDrawing->setRenderingFunction(PHPExcel_Worksheet_MemoryDrawing::RENDERING_JPEG);
+		$objDrawing->setMimeType(PHPExcel_Worksheet_MemoryDrawing::MIMETYPE_DEFAULT);
+		$objDrawing->setHeight(350);
+		$objDrawing->setWorksheet($sheet);
+
+		$sheet->mergeCells('A6:F6');
+		$sheet->getRowDimension('6')->setRowHeight(260);
+		$objDrawing->setCoordinates('A6');
 
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 		ob_end_clean();
