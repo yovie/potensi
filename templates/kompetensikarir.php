@@ -150,12 +150,41 @@
                 'target': '_blank',
                 'method': "post"
             }).append(jQuery('<input>', {
+                'name': 'pdf',
+                'value': '1',
+                'type': 'hidden'
+            })).append(jQuery('<input>', {
                 'name': 'siswa',
                 'value': '<?php echo $get_siswa ?>',
                 'type': 'hidden'
             })).append(jQuery('<input>', {
                 'name': 'konten',
                 'value': $('#toPDF').html(),
+                'type': 'hidden'
+            }));
+            newForm.submit();
+        }
+
+        function excel() {
+            var canvas = $("#chartContainer3").find('canvas').get(0);
+            var img    = canvas.toDataURL("image/jpeg");
+            // $('#imgChart').attr( 'src', img );
+            console.log($('#toPDF').html());
+            var newForm = jQuery('<form>', {
+                'action': 'kompetensi_karir?siswa=<?php echo $get_siswa ?>',
+                'target': '_blank',
+                'method': "post"
+            }).append(jQuery('<input>', {
+                'name': 'excel',
+                'value': '1',
+                'type': 'hidden'
+            })).append(jQuery('<input>', {
+                'name': 'siswa',
+                'value': '<?php echo $get_siswa ?>',
+                'type': 'hidden'
+            })).append(jQuery('<input>', {
+                'name': 'chart',
+                'value': img,
                 'type': 'hidden'
             }));
             newForm.submit();
@@ -226,7 +255,8 @@
     <div class="row">
         <div class="col-md-12">
             <button class="btn btn-success" onclick="cetak()"> <i class="fa fa-print"></i> &nbsp; Cetak</button> &nbsp; 
-            <button class="btn btn-success" onclick="ekspor()"> <i class="fa fa-file-pdf-o"></i> &nbsp; Ekspor</button>
+            <button class="btn btn-success" onclick="ekspor()"> <i class="fa fa-file-pdf-o"></i> &nbsp; Ekspor</button> &nbsp; 
+            <button class="btn btn-success" onclick="excel()"> <i class="fa fa-file-excel-o"></i> &nbsp; Excel</button> &nbsp; 
             <br/>
             <br/>
         </div>

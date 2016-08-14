@@ -1,6 +1,9 @@
 <?php
 	if(!defined( "APPLICATION_BASE" )) die( "Error" );
 
+	set_time_limit(0);
+	date_default_timezone_set('Asia/Jakarta');
+
 	if(!login())
 			redirect( "login" );
 
@@ -94,7 +97,7 @@
 	$tes["rata_total_c"] = $total_c;
 	$tes["rata_total_r"] = $total_r;
 
-	if( isset($post_siswa) ) {
+	if( isset($post_pdf) ) {
 		include("./mpdf60/mpdf.php");
 
 		$html = $post_konten;
@@ -106,5 +109,56 @@
 		$mpdf->SetTitle('Profil Kompetensi Karir');
 		$mpdf->WriteHTML($html);
 		$mpdf->Output('Profil Kompetensi Karir - ' . $siswa->nama . '.pdf', 'I');
+		die;
+	}
+
+	if( isset($post_excel) ) {
+		error_reporting(E_ALL);
+		ini_set('display_errors', TRUE);
+		ini_set('display_startup_errors', TRUE);
+
+		include './phpexcel/Classes/PHPExcel.php';
+		header('Content-type: application/vnd.ms-excel');
+		header('Content-Disposition: attachment; filename="Profil Kompetensi Karir.xlsx"');
+		$objPHPExcel = new PHPExcel();
+		$sheet = $objPHPExcel->getActiveSheet();
+		
+		$sheet->mergeCells('A1:E1');
+		$sheet->setCellValue('A1', 'Profil Kompetensi Karir');
+		$sheet->getStyle('A1')->getAlignment()->applyFromArray(
+		    array(
+		    	'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+		    	'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
+		    )
+		);
+		$sheet->getColumnDimension('A')->setWidth(20);
+		$sheet->getColumnDimension('B')->setWidth(20);
+		$sheet->getColumnDimension('C')->setWidth(20);
+		$sheet->getColumnDimension('D')->setWidth(20);
+		$sheet->getColumnDimension('E')->setWidth(20);
+		$sheet->getRowDimension('1')->setRowHeight(50);
+		$sheet->getStyle("A1")->getFont()->setBold(true);
+
+		$sheet->setCellValue('A2', 'Nama');
+		$sheet->setCellValue('B2', ': ' . $siswa->profile->nama);
+		$sheet->setCellValue('A3', 'Tempat/Tgl.Lahir');
+		$sheet->setCellValue('B3', ': ' . $siswa->profile->tempat_lahir.", ".$siswa->profile->tanggal_lahir);
+		$sheet->setCellValue('A4', 'Jenis Kelamin');
+		$sheet->setCellValue('B4', ': ' . $siswa->profile->jenis_kelamin);
+		$sheet->setCellValue('A5', 'Nomor Induk Siswa');
+		$sheet->setCellValue('B5', ': ' . $siswa->profile->nip);
+
+		$sheet->setCellValue('D2', 'Sekolah');
+		$sheet->setCellValue('E2', ': ' . $siswa->profile->sekolah);
+		$sheet->setCellValue('D3', 'Etnis');
+		$sheet->setCellValue('E3', ': ' . $siswa->profile->etnis);
+		$sheet->setCellValue('D4', 'Tanggal Tes');
+		$sheet->setCellValue('E4', ': ' . date("d-M-Y h:i:s", $siswa->mulai));
+		$sheet->setCellValue('D5', 'No.HP/Email');
+		$sheet->setCellValue('E5', ': ' . $siswa->profile->kontak." / ".$siswa->profile->email);
+
+		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+		ob_end_clean();
+		$objWriter->save('php://output');
 		die;
 	}
