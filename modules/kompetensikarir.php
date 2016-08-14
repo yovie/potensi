@@ -177,6 +177,36 @@
 		$sheet->getRowDimension('6')->setRowHeight(260);
 		$objDrawing->setCoordinates('A6');
 
+		$sheet->getStyle("A7:F9")->applyFromArray(
+		    array(
+		        'borders' => array(
+		            'allborders' => array(
+		                'style' => PHPExcel_Style_Border::BORDER_THIN,
+		                'color' => array('rgb' => '00000')
+		            )
+		        )
+		    )
+		);
+
+		$sheet->setCellValue('B7', 'KK');
+		$sheet->setCellValue('C7', 'SK A');
+		$sheet->setCellValue('D7', 'SK B');
+		$sheet->setCellValue('E7', 'SK C');
+		$sheet->setCellValue('F7', 'RK');
+		$sheet->setCellValue('A8', 'Kelompok');
+		$sheet->setCellValue('A9', 'Individual');
+
+		$sheet->setCellValue('B8', sprintf("%.2f", $tes['rata_total']));
+		$sheet->setCellValue('C8', sprintf("%.2f", $tes['rata_total_a']));
+		$sheet->setCellValue('D8', sprintf("%.2f", $tes['rata_total_b']));
+		$sheet->setCellValue('E8', sprintf("%.2f", $tes['rata_total_c']));
+		$sheet->setCellValue('F8', sprintf("%.2f", $tes['rata_total_r']));
+
+		$sheet->setCellValue('B9', sprintf("%.2f", $siswa->kompetensi_karir_individu));
+		$sheet->setCellValue('C9', sprintf("%.2f", $siswa->kompetensi_karir_individu_a));
+		$sheet->setCellValue('D9', sprintf("%.2f", $siswa->kompetensi_karir_individu_b));
+		$sheet->setCellValue('E9', sprintf("%.2f", $siswa->kompetensi_karir_individu_c));
+		$sheet->setCellValue('F9', sprintf("%.2f", $siswa->rata_kompetensi));
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 		ob_end_clean();
 		$objWriter->save('php://output');
