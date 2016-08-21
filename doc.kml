@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/kml/2.2 http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd http://www.google.com/kml/ext/2.2 http://code.google.com/apis/kml/schema/kml22gx.xsd">
+<Document id="PT. Mas Putih Belitung Gamping">
+  <name>PT. Mas Putih Belitung Gamping</name>
+  <Snippet></Snippet>
+  <Folder id="FeatureLayer0">
+    <name>PT. Mas Putih Belitung Gamping</name>
+    <Snippet></Snippet>
+    <Placemark id="ID_00000">
+      <name>PT. Mas  Putih Belitung</name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td>PT. Mas  Putih Belitung</td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>FID</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Id</td>
+<td>0</td>
+</tr>
+<tr>
+<td>perusahaan</td>
+<td>PT. Mas  Putih Belitung</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>no_sk_iup</td>
+<td></td>
+</tr>
+<tr>
+<td>luas_ha</td>
+<td>46.4</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>komoditas</td>
+<td>Batu Gamping</td>
+</tr>
+<tr>
+<td>tahap_keg</td>
+<td></td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>tgl_mulai</td>
+<td>&lt;Null&gt;</td>
+</tr>
+<tr>
+<td>tgl_akhir</td>
+<td>&lt;Null&gt;</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <outerBoundaryIs><LinearRing><coordinates> 107.217303,-6.432817 107.213106,-6.432817 107.213106,-6.434161 107.212244,-6.434161 107.212244,-6.435786 107.210381,-6.435786 107.210381,-6.438842 107.212100,-6.438842 107.212100,-6.439119 107.213703,-6.439119 107.213703,-6.438878 107.214517,-6.438878 107.214517,-6.439500 107.215719,-6.439500 107.215719,-6.439075 107.217667,-6.439075 107.217667,-6.435975 107.217303,-6.435975 107.217303,-6.432817</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+  </Folder>
+  <Style id="PolyStyle00">
+    <LabelStyle>
+      <color>00000000</color>
+      <scale>0.000000</scale>
+    </LabelStyle>
+    <LineStyle>
+      <color>ff6e6e6e</color>
+      <width>0.400000</width>
+    </LineStyle>
+    <PolyStyle>
+      <color>ffcde3fa</color>
+      <outline>1</outline>
+    </PolyStyle>
+  </Style>
+</Document>
+</kml>
