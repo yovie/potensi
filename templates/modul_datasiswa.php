@@ -110,7 +110,12 @@
                         <div class="form-group">
                             <label class="col-md-3">Kelas</label>
                             <div class="col-md-7">
-                                <input type="text" name="kelas" class="form-control" placeholder="Kelas" />
+                                <input type="text" name="kelas" class="form-control" placeholder="Kelas" list="list_kelas" />
+                                <datalist id="list_kelas">
+                                    <?php foreach($kelas as $kks): ?>
+                                        <option value="<?php echo $kks->kelas ?>">
+                                    <?php endforeach;?>
+                                </datalist>
                             </div>
                         </div>
                         <div class="form-group">

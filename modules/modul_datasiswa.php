@@ -117,6 +117,8 @@
 
 	$siswa = select( "profiles", "group_id=2" );
 
+	$kelas = query("select kelas from profiles where group_id=2 group by kelas");
+
 	foreach($siswa as &$sis) {
 		$sis->{'have_account'} = select_one( "users", "ref_id=" . $sis->id );
 	}
