@@ -194,7 +194,17 @@
 		$sheet->setCellValue('E7', 'SK C');
 		$sheet->setCellValue('F7', 'RK');
 		$sheet->setCellValue('A8', 'Kelompok');
+		$sheet->getStyle('A8')
+	        ->getFill()
+	        ->setFillType(PHPExcel_Style_Fill::FILL_SOLID)
+	        ->getStartColor()
+	        ->setRGB('F08080');
 		$sheet->setCellValue('A9', 'Individual');
+		$sheet->getStyle('A9')
+	        ->getFill()
+	        ->setFillType(PHPExcel_Style_Fill::FILL_SOLID)
+	        ->getStartColor()
+	        ->setRGB('20B2AA');
 
 		$sheet->setCellValue('B8', sprintf("%.2f", $tes['rata_total']));
 		$sheet->setCellValue('C8', sprintf("%.2f", $tes['rata_total_a']));
@@ -208,7 +218,12 @@
 		$sheet->setCellValue('E9', sprintf("%.2f", $siswa->kompetensi_karir_individu_c));
 		$sheet->setCellValue('F9', sprintf("%.2f", $siswa->rata_kompetensi));
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-		ob_end_clean();
+
+		if (ob_get_contents()) 
+			ob_end_clean();
+
+		// ob_end_clean();
+
 		$objWriter->save('php://output');
 		die;
 	}

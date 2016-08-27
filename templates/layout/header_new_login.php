@@ -107,9 +107,8 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Kontak</h2>
-                <p>kontak1@gmail.com</p>
-                <p>kontak2@gmail.com</p>
-                <p>kontak3@gmail.com</p>
+                <p>gantina_komalasari@yahoo.com</p>
+                <p>herdiunj5@gmail.com</p>
             </div>
         </div>
     </section>
