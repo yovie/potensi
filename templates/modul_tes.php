@@ -15,7 +15,7 @@
             <div class="col-md-12" style="padding-top:20px;">
                 <div class="panel panel-success">
                     <div class="panel-heading text-center"> Selesai </div>
-                    <div class="panel-body text-center"><p><?php echo sprintf( "Terima kasih %s sudah menjawab seluruh pertanyaan", $user_session->profile->nama); ?></p></div>
+                    <div class="panel-body text-center"><p><?php echo sprintf( "Terima kasih %s telah mengisi instrumen skala kompetensi karir", $user_session->profile->nama); ?></p></div>
                 </div>
             </div>
         </div>

@@ -49,7 +49,11 @@
             </div>
     <div class="row">
                 <div class="col-md-12">
-                    Aplikasi ini digunakan untuk mengukur sejauh mana kompetensi siswa ...
+                    Kompetensi karir adalah kemampuan individu dalam pengambilan keputusan tentang pendidikan lanjutan dan
+
+                    pekerjaan yang didasari oleh pengetahuan, sikap, dan keterampilan. Layanan bimbingan yang tepat dalam
+
+                    membantu peserta didik dalam mengetahui kompetensi karirnya adalah dengan bimbingan karir.
                 </div>
             </div>
 
