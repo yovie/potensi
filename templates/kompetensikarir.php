@@ -103,19 +103,19 @@
                 "<center><strong>Profil Kompetensi Karir</strong></center><hr style=\"\"/><br/>"
                 + "<table border=\"0\" width=\"100%\">"
                 + "<tr>"
-                + "   <td>Nama</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->nama ?></td>"
+                + "   <td>NIS</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->nip ?></td>"
                 + "   <td>Sekolah</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->sekolah ?></td>"
                 + "</tr>"
                 + "<tr>"
-                + "   <td>Tempat/Tgl. lahir</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->tempat_lahir."/".$siswa->profile->tanggal_lahir ?></td>"
+                + "   <td>Nama</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->nama ?></td>"
                 + "   <td>Etnis</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->etnis ?></td>"
                 + "</tr>"
                 + "<tr>"
-                + "   <td>Jenis kelamin</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->jenis_kelamin ?></td>"
+                + "   <td>Tempat/Tgl. lahir</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->tempat_lahir."/".$siswa->profile->tanggal_lahir ?></td>"
                 + "   <td>Tanggal test</td><td width=\"2px\">:</td><td><?php echo date("d-M-Y h:i:s", $siswa->mulai) ?></td>"
                 + "</tr>"
                 + "<tr>"
-                + "   <td>Nomor induk siswa</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->nip ?></td>"
+                + "   <td>Jenis kelamin</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->jenis_kelamin ?></td>"
                 + "   <td>No. HP/Email</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->kontak." / ".$siswa->profile->email ?></td>"
                 + "</tr>"
                 + "</table> <br/>"
@@ -267,19 +267,19 @@
         <p align="center"><strong>Profil Kompetensi Karir</strong></p><hr style=""/><br/>
         <table border="0" width="100%">
         <tr>
-           <td>Nama</td><td width="2px">:</td><td><?php echo $siswa->profile->nama ?></td>
+           <td>NIS</td><td width="2px">:</td><td><?php echo $siswa->profile->nip ?></td>
            <td>Sekolah</td><td width="2px">:</td><td><?php echo $siswa->profile->sekolah ?></td>
         </tr>
         <tr>
-           <td>Tempat/Tgl. lahir</td><td width="2px">:</td><td><?php echo $siswa->profile->tempat_lahir."/".$siswa->profile->tanggal_lahir ?></td>
+           <td>Nama</td><td width="2px">:</td><td><?php echo $siswa->profile->nama ?></td>
            <td>Etnis</td><td width="2px">:</td><td><?php echo $siswa->profile->etnis ?></td>
         </tr>
         <tr>
-           <td>Jenis kelamin</td><td width="2px">:</td><td><?php echo $siswa->profile->jenis_kelamin ?></td>
+           <td>Tempat/Tgl. lahir</td><td width="2px">:</td><td><?php echo $siswa->profile->tempat_lahir."/".$siswa->profile->tanggal_lahir ?></td>
            <td>Tanggal test</td><td width="2px">:</td><td><?php echo date("d-M-Y h:i:s", $siswa->mulai) ?></td>
         </tr>
         <tr>
-           <td>Nomor induk siswa</td><td width="2px">:</td><td><?php echo $siswa->profile->nip ?></td>
+           <td>Jenis kelamin</td><td width="2px">:</td><td><?php echo $siswa->profile->jenis_kelamin ?></td>
            <td>No. HP/Email</td><td width="2px">:</td><td><?php echo $siswa->profile->kontak." / ".$siswa->profile->email ?></td>
         </tr>
         </table> <br/>

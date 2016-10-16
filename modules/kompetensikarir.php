@@ -37,6 +37,8 @@
 		$tt->{"profile"} = query_one( "select p.* from users u 
 					left join profiles p on p.id=u.ref_id
 					where u.id=" . $tt->user_id );
+		if(empty($tt->profile))
+			continue;
 		$total_butir = query_one( "select sum(t.skor) as nilai 
 			from tes_jawaban m left join jawaban t on t.id=m.jawaban_id 
 			where m.tes_id=(select id from tes where user_id={$tt->user_id} limit 1)");
@@ -141,14 +143,14 @@
 		$sheet->getRowDimension('1')->setRowHeight(50);
 		$sheet->getStyle("A1")->getFont()->setBold(true);
 
-		$sheet->setCellValue('A2', 'Nama');
-		$sheet->setCellValue('B2', ': ' . $siswa->profile->nama);
-		$sheet->setCellValue('A3', 'Tempat/Tgl.Lahir');
-		$sheet->setCellValue('B3', ': ' . $siswa->profile->tempat_lahir.", ".$siswa->profile->tanggal_lahir);
-		$sheet->setCellValue('A4', 'Jenis Kelamin');
-		$sheet->setCellValue('B4', ': ' . $siswa->profile->jenis_kelamin);
-		$sheet->setCellValue('A5', 'Nomor Induk Siswa');
-		$sheet->setCellValue('B5', ': ' . $siswa->profile->nip);
+		$sheet->setCellValue('A3', 'Nama');
+		$sheet->setCellValue('B3', ': ' . $siswa->profile->nama);
+		$sheet->setCellValue('A4', 'Tempat/Tgl.Lahir');
+		$sheet->setCellValue('B4', ': ' . $siswa->profile->tempat_lahir.", ".$siswa->profile->tanggal_lahir);
+		$sheet->setCellValue('A5', 'Jenis Kelamin');
+		$sheet->setCellValue('B5', ': ' . $siswa->profile->jenis_kelamin);
+		$sheet->setCellValue('A2', 'NIS');
+		$sheet->setCellValue('B2', ': ' . $siswa->profile->nip);
 
 		$sheet->setCellValue('D2', 'Sekolah');
 		$sheet->setCellValue('E2', ': ' . $siswa->profile->sekolah);

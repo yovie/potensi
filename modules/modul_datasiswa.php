@@ -30,9 +30,12 @@
 		} elseif( isset($post_delete) ) {
 			
 			$pro = select_one( "profiles", "id=" . $post_id );
+			$usr = select_one( "users", "ref_id=" . $pro->id );
 			delete( "users", "ref_id=" . $pro->id );
 			delete( "profiles", "id=" . $pro->id );
-			unlink( getcwd() . $pro->foto );
+			delete( "tes", "user_id=" . $usr->id );
+			if($pro->foto!="/files/users.png")
+				unlink( getcwd() . $pro->foto );
 
 		} elseif( empty($post_id) ) {
 
