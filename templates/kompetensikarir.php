@@ -13,6 +13,10 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
+                <label class="col-md-6">NIS</label>
+                <label class="col-md-6">: <?php echo $siswa->profile->nip ?> </label>
+            </div>
+            <div class="form-group">
                 <label class="col-md-6">Nama</label>
                 <label class="col-md-6">: <?php echo $siswa->profile->nama ?> </label>
             </div>
@@ -23,10 +27,6 @@
             <div class="form-group">
                 <label class="col-md-6">Jenis Kelamin</label>
                 <label class="col-md-6">: <?php echo $siswa->profile->jenis_kelamin ?> </label>
-            </div>
-            <div class="form-group">
-                <label class="col-md-6">Nomor Induk Siswa</label>
-                <label class="col-md-6">: <?php echo $siswa->profile->nip ?> </label>
             </div>
         </div> 
         <div class="col-md-6">

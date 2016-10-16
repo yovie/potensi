@@ -23,10 +23,18 @@ div, p, span, input, label{
 }
 
 p, label, .panel-heading, input, button, .navbar-brand{
-    font-size: 14pt;
+    font-size: 13pt;
 }
 .dropdown a{
     font-size: 11pt;
+}
+
+#side-menu li a{
+    font-size: 12pt;
+}
+
+.table th, .table td{
+    font-size: 12pt;   
 }
 
 #page-wrapper {
