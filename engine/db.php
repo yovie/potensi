@@ -1,7 +1,7 @@
 <?php
 	if(!defined('APPLICATION_BASE')) die('Error');
 	
-	$connection = mysqli_connect('localhost', 'root', 'root');
+	$connection = mysqli_connect('localhost:3406', 'root', '');
 	mysqli_select_db($connection, 'potensi');
 	
 	function toarray($mres){
