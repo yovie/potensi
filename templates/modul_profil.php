@@ -71,19 +71,19 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3"> <?php echo $user_session->group_id==USER_GURU ? "NIP":"NIS" ?></label>
-                            <div class="col-md-9">
+                            <label class="col-md-4"> <?php echo $user_session->group_id==USER_GURU ? "NIP":"NIS" ?></label>
+                            <div class="col-md-8">
                                 <input type="text" name="nip" placeholder="<?php echo $user_session==USER_GURU ? "NIP":"NIS" ?>" class="form-control" value="<?php echo empty($profil) ? "":$profil->nip ?>" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3"> Nama</label>
-                            <div class="col-md-9">
+                            <label class="col-md-4"> Nama</label>
+                            <div class="col-md-8">
                                 <input type="text" name="nama" placeholder="Nama" class="form-control" value="<?php echo empty($profil) ? "":$profil->nama ?>" >
                             </div>
                         </div>
                         <div class="form-group">
-                                        <label class="col-md-3"  style="color:#555;">Jenis Kelamin</label>
+                                        <label class="col-md-4"  style="color:#555;">Jenis Kelamin</label>
                                         <div class="col-md-5">
                                             <select name="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin" required>
                                                 <option value="Laki-laki" <?php if(!empty($profil)) {
@@ -97,51 +97,51 @@
                         </div>
                         <?php if( $user_session->group_id==USER_SISWA ): ?>
                             <div class="form-group">
-                                <label class="col-md-3">Tempat Lahir</label>
-                                <div class="col-md-9">
+                                <label class="col-md-4">Tempat Lahir</label>
+                                <div class="col-md-8">
                                     <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat lahir" value="<?php echo empty($profil) ? "":$profil->tempat_lahir ?>" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3">Tanggal Lahir</label>
-                                <div class="col-md-9">
+                                <label class="col-md-4">Tanggal Lahir</label>
+                                <div class="col-md-8">
                                     <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal lahir" value="<?php echo empty($profil) ? "":$profil->tanggal_lahir ?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3">Etnis</label>
-                                <div class="col-md-9">
+                                <label class="col-md-4">Etnis</label>
+                                <div class="col-md-8">
                                     <input type="text" name="etnis" class="form-control" placeholder="Etnis" value="<?php echo empty($profil) ? "":$profil->etnis ?>"/>
                                 </div>
                             </div>
                         <?php endif; ?>
                         <div class="form-group">
-                            <label class="col-md-3"> Kontak</label>
-                            <div class="col-md-9">
+                            <label class="col-md-4"> Kontak</label>
+                            <div class="col-md-8">
                                 <input type="text" name="kontak" placeholder="Kontak" class="form-control" value="<?php echo empty($profil) ? "":$profil->kontak ?>" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3"> Email</label>
-                            <div class="col-md-9">
+                            <label class="col-md-4"> Email</label>
+                            <div class="col-md-8">
                                 <input type="email" name="email" placeholder="Email" class="form-control" value="<?php echo empty($profil) ? "":$profil->email ?>" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3"> Kelas</label>
-                            <div class="col-md-9">
+                            <label class="col-md-4"> Kelas</label>
+                            <div class="col-md-8">
                                 <input type="text" name="kelas" placeholder="Kelas" class="form-control" value="<?php echo empty($profil) ? "":$profil->kelas ?>" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3"> Sekolah</label>
-                            <div class="col-md-9">
+                            <label class="col-md-4"> Sekolah</label>
+                            <div class="col-md-8">
                                 <input type="text" name="sekolah" placeholder="Kelas" class="form-control" value="<?php echo empty($profil) ? "":$profil->sekolah ?>" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3"> Foto</label>
-                            <div class="col-md-9">
+                            <label class="col-md-4"> Foto</label>
+                            <div class="col-md-8">
                                 <input type="file" name="foto" placeholder="Foto" class="form-control"/>
                             </div>
                         </div>

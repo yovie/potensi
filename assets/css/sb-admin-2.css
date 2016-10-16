@@ -3,13 +3,30 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
+@font-face {
+    font-family: calibri;
+    src: url(Calibri.ttf);
+}
 
 body {
     background-color: #f8f8f8;
+    font-family: calibri;
 }
 
 #wrapper {
     width: 100%;
+    font-family: calibri;
+}
+
+div, p, span, input, label{
+    font-family: calibri;
+}
+
+p, label, .panel-heading, input, button, .navbar-brand{
+    font-size: 14pt;
+}
+.dropdown a{
+    font-size: 11pt;
 }
 
 #page-wrapper {
