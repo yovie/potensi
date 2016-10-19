@@ -126,9 +126,46 @@
 		$objPHPExcel = new PHPExcel();
 		$sheet = $objPHPExcel->getActiveSheet();
 		
-		$sheet->mergeCells('A1:F1');
-		$sheet->setCellValue('A1', 'Profil Kompetensi Karir');
-		$sheet->getStyle('A1')->getAlignment()->applyFromArray(
+		$sheet->mergeCells('B1:F1');
+		// $logo = file_get_contents(getcwd() . "/unj.png");
+        // $logo_type = pathinfo(getcwd() . "/unj.png", PATHINFO_EXTENSION);
+        // $img_logo = base64_encode($logo);
+        // $img_logo = 'base64,' . base64_encode($logo);
+        // $url_logo = 'data:image/' . $logo_type . ';' . $img_logo;
+
+        $im_logo = imagecreatefrompng(getcwd() . "/unj.png");
+
+		$logoDrawing = new PHPExcel_Worksheet_MemoryDrawing();
+		$logoDrawing->setName('Logo');
+		$logoDrawing->setDescription('Logo');
+		$logoDrawing->setImageResource($im_logo);
+		$logoDrawing->setRenderingFunction(PHPExcel_Worksheet_MemoryDrawing::RENDERING_JPEG);
+		$logoDrawing->setMimeType(PHPExcel_Worksheet_MemoryDrawing::MIMETYPE_DEFAULT);
+		$logoDrawing->setHeight(90);
+		$logoDrawing->setWorksheet($sheet);
+
+		$logoDrawing->setCoordinates('A1');
+
+		$sheet->setCellValue('B1', "PROFIL KOMPETENSI KARIR\nPESERTA DIDIK");
+		$sheet->getStyle('B1')->getAlignment()->applyFromArray(
+		    array(
+		    	'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+		    	'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER
+		    )
+		);
+		$sheet->getStyle('B1')->applyFromArray(
+			array(
+				'font'  => array(
+			        'bold'  => true,
+			        'size'  => 15,
+			        'name'  => 'Verdana'
+			    )
+			)
+		);
+
+		$sheet->mergeCells('A2:F2');
+		$sheet->setCellValue('A2', 'Profil Individual');
+		$sheet->getStyle('A2')->getAlignment()->applyFromArray(
 		    array(
 		    	'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
 		    	'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
@@ -140,26 +177,26 @@
 		$sheet->getColumnDimension('D')->setWidth(20);
 		$sheet->getColumnDimension('E')->setWidth(20);
 		$sheet->getColumnDimension('F')->setWidth(20);
-		$sheet->getRowDimension('1')->setRowHeight(50);
-		$sheet->getStyle("A1")->getFont()->setBold(true);
+		$sheet->getRowDimension('1')->setRowHeight(70);
+		$sheet->getStyle("A2")->getFont()->setBold(true);
 
-		$sheet->setCellValue('A3', 'Nama');
-		$sheet->setCellValue('B3', ': ' . $siswa->profile->nama);
-		$sheet->setCellValue('A4', 'Tempat/Tgl.Lahir');
-		$sheet->setCellValue('B4', ': ' . $siswa->profile->tempat_lahir.", ".$siswa->profile->tanggal_lahir);
-		$sheet->setCellValue('A5', 'Jenis Kelamin');
-		$sheet->setCellValue('B5', ': ' . $siswa->profile->jenis_kelamin);
-		$sheet->setCellValue('A2', 'NIS');
-		$sheet->setCellValue('B2', ': ' . $siswa->profile->nip);
+		$sheet->setCellValue('A4', 'Nama');
+		$sheet->setCellValue('B4', ': ' . $siswa->profile->nama);
+		$sheet->setCellValue('A5', 'Tempat/Tgl.Lahir');
+		$sheet->setCellValue('B5', ': ' . $siswa->profile->tempat_lahir.", ".$siswa->profile->tanggal_lahir);
+		$sheet->setCellValue('A6', 'Jenis Kelamin');
+		$sheet->setCellValue('B6', ': ' . $siswa->profile->jenis_kelamin);
+		$sheet->setCellValue('A3', 'NIS');
+		$sheet->setCellValue('B3', ': ' . $siswa->profile->nip);
 
-		$sheet->setCellValue('D2', 'Sekolah');
-		$sheet->setCellValue('E2', ': ' . $siswa->profile->sekolah);
-		$sheet->setCellValue('D3', 'Etnis');
-		$sheet->setCellValue('E3', ': ' . $siswa->profile->etnis);
-		$sheet->setCellValue('D4', 'Tanggal Tes');
-		$sheet->setCellValue('E4', ': ' . date("d-M-Y h:i:s", $siswa->mulai));
-		$sheet->setCellValue('D5', 'No.HP/Email');
-		$sheet->setCellValue('E5', ': ' . $siswa->profile->kontak." / ".$siswa->profile->email);
+		$sheet->setCellValue('D3', 'Sekolah');
+		$sheet->setCellValue('E3', ': ' . $siswa->profile->sekolah);
+		$sheet->setCellValue('D4', 'Etnis');
+		$sheet->setCellValue('E4', ': ' . $siswa->profile->etnis);
+		$sheet->setCellValue('D5', 'Tanggal Tes');
+		$sheet->setCellValue('E5', ': ' . date("d-M-Y h:i:s", $siswa->mulai));
+		$sheet->setCellValue('D6', 'No.HP/Email');
+		$sheet->setCellValue('E6', ': ' . $siswa->profile->kontak." / ".$siswa->profile->email);
 
 		$str = "data:image/jpeg;base64,"; 
 		$data = str_replace($str,"", $post_chart); 
@@ -175,11 +212,11 @@
 		$objDrawing->setHeight(350);
 		$objDrawing->setWorksheet($sheet);
 
-		$sheet->mergeCells('A6:F6');
-		$sheet->getRowDimension('6')->setRowHeight(260);
-		$objDrawing->setCoordinates('A6');
+		$objDrawing->setCoordinates('A7');
+		$sheet->mergeCells('A7:F7');
+		$sheet->getRowDimension('7')->setRowHeight(260);
 
-		$sheet->getStyle("A7:F9")->applyFromArray(
+		$sheet->getStyle("A8:F10")->applyFromArray(
 		    array(
 		        'borders' => array(
 		            'allborders' => array(
@@ -190,35 +227,35 @@
 		    )
 		);
 
-		$sheet->setCellValue('B7', 'KK');
-		$sheet->setCellValue('C7', 'SK A');
-		$sheet->setCellValue('D7', 'SK B');
-		$sheet->setCellValue('E7', 'SK C');
-		$sheet->setCellValue('F7', 'RK');
-		$sheet->setCellValue('A8', 'Kelompok');
-		$sheet->getStyle('A8')
+		$sheet->setCellValue('B8', 'KK');
+		$sheet->setCellValue('C8', 'SK A');
+		$sheet->setCellValue('D8', 'SK B');
+		$sheet->setCellValue('E8', 'SK C');
+		$sheet->setCellValue('F8', 'RK');
+		$sheet->setCellValue('A9', 'Kelompok');
+		$sheet->getStyle('A9')
 	        ->getFill()
 	        ->setFillType(PHPExcel_Style_Fill::FILL_SOLID)
 	        ->getStartColor()
 	        ->setRGB('F08080');
-		$sheet->setCellValue('A9', 'Individual');
-		$sheet->getStyle('A9')
+		$sheet->setCellValue('A10', 'Individual');
+		$sheet->getStyle('A10')
 	        ->getFill()
 	        ->setFillType(PHPExcel_Style_Fill::FILL_SOLID)
 	        ->getStartColor()
 	        ->setRGB('20B2AA');
 
-		$sheet->setCellValue('B8', sprintf("%.2f", $tes['rata_total']));
-		$sheet->setCellValue('C8', sprintf("%.2f", $tes['rata_total_a']));
-		$sheet->setCellValue('D8', sprintf("%.2f", $tes['rata_total_b']));
-		$sheet->setCellValue('E8', sprintf("%.2f", $tes['rata_total_c']));
-		$sheet->setCellValue('F8', sprintf("%.2f", $tes['rata_total_r']));
+		$sheet->setCellValue('B9', sprintf("%.2f", $tes['rata_total']));
+		$sheet->setCellValue('C9', sprintf("%.2f", $tes['rata_total_a']));
+		$sheet->setCellValue('D9', sprintf("%.2f", $tes['rata_total_b']));
+		$sheet->setCellValue('E9', sprintf("%.2f", $tes['rata_total_c']));
+		$sheet->setCellValue('F9', sprintf("%.2f", $tes['rata_total_r']));
 
-		$sheet->setCellValue('B9', sprintf("%.2f", $siswa->kompetensi_karir_individu));
-		$sheet->setCellValue('C9', sprintf("%.2f", $siswa->kompetensi_karir_individu_a));
-		$sheet->setCellValue('D9', sprintf("%.2f", $siswa->kompetensi_karir_individu_b));
-		$sheet->setCellValue('E9', sprintf("%.2f", $siswa->kompetensi_karir_individu_c));
-		$sheet->setCellValue('F9', sprintf("%.2f", $siswa->rata_kompetensi));
+		$sheet->setCellValue('B10', sprintf("%.2f", $siswa->kompetensi_karir_individu));
+		$sheet->setCellValue('C10', sprintf("%.2f", $siswa->kompetensi_karir_individu_a));
+		$sheet->setCellValue('D10', sprintf("%.2f", $siswa->kompetensi_karir_individu_b));
+		$sheet->setCellValue('E10', sprintf("%.2f", $siswa->kompetensi_karir_individu_c));
+		$sheet->setCellValue('F10', sprintf("%.2f", $siswa->rata_kompetensi));
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 
 		if (ob_get_contents()) 
