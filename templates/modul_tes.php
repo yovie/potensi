@@ -13,9 +13,12 @@
     <?php if( $the_status=="selesai" ): $msg = get_flashmessage(); ?>
         <div class="row">
             <div class="col-md-12" style="padding-top:20px;">
-                <div class="panel panel-success">
+                <div class="panel panel-success text-center">
                     <div class="panel-heading text-center"> Selesai </div>
                     <div class="panel-body text-center"><p><?php echo sprintf( "Terima kasih %s telah mengisi instrumen skala kompetensi karir", $user_session->profile->nama); ?></p></div>
+                    <br/>
+                    <button onclick="location.href='kompetensi_karir?siswa=<?php echo $user_session->id ?>'" class="btn btn-primary btn-lg" style="margin-bottom: 20px;">Lihat Hasil Tes</button>
+                    <br/>
                 </div>
             </div>
         </div>

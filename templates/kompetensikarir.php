@@ -8,8 +8,18 @@
     <script src="./assets/js/canvasjs.min.js"></script>
     
     <div class="row" id="kontenHtml">
-        <div class="col-lg-12">
-            <h3 class="page-header text-center">Profil Kompetensi Karir</h3>
+        <div class="col-md-12">
+            <div class="col-md-2">
+                <img src="unj.png" height="100px" style="margin:10px"/>
+            </div>
+            <div class="col-md-10 text-center">
+                <h2 style="text-transform: uppercase;">Profil Kompetensi Karir</h2>
+                <h2 style="text-transform: uppercase;">Peserta Didik</h2>
+            </div>
+        </div>
+        <div class="col-md-12"> <hr> </div>
+        <div class="col-md-12">
+            <h3 class="text-center">Profil Individual</h3>
         </div>
         <div class="col-md-6">
             <div class="form-group">
@@ -98,9 +108,28 @@
             
             var canvas = $("#chartContainer3").find('canvas').get(0);
             var img    = canvas.toDataURL("image/jpeg");
+            
+            <?php
+                $logo = file_get_contents(getcwd() . "/unj.png");
+                $logo_type = pathinfo(getcwd() . "/unj.png", PATHINFO_EXTENSION);
+                $img_logo = 'base64,' . base64_encode($logo);
+                $url_logo = 'data:image/' . $logo_type . ';' . $img_logo;
+            ?>
 
             doc.document.write(
-                "<center><strong>Profil Kompetensi Karir</strong></center><hr style=\"\"/><br/>"
+                "<table border='0' width='100%'>"
+                + "<tr>"
+                + "<td>"
+                + '<img src="<?php echo $url_logo ?>" height="100px" style="margin:10px"/>'
+                + "</td>"
+                + "<td align='center'>"
+                + '<h2 style="text-transform: uppercase;">Profil Kompetensi Karir</h2>'
+                + '<h2 style="text-transform: uppercase;">Peserta Didik</h2>'
+                + "</td>"
+                + "<tr/>"
+                + "</table>"
+                + "<hr style=\"\"/>"
+                + "<center><h3>Profil Individual</h3></center><br/>"
                 + "<table border=\"0\" width=\"100%\">"
                 + "<tr>"
                 + "   <td>NIS</td><td width=\"2px\">:</td><td><?php echo $siswa->profile->nip ?></td>"
@@ -264,7 +293,19 @@
 
 
     <div style="display:none" id="toPDF">
-        <p align="center"><strong>Profil Kompetensi Karir</strong></p><hr style=""/><br/>
+         <table border='0' width='100%'>
+            <tr>
+            <td>
+                <img src="<?php echo $url_logo ?>" height="100px" style="margin:10px"/>
+            </td>
+            <td align='center'>
+                <h2 style="text-transform: uppercase;padding-bottom: 20px;">Profil Kompetensi Karir</h2>
+                <h2 style="text-transform: uppercase;">Peserta Didik</h2>
+            </td>
+            <tr/>
+        </table>
+        <hr>
+        <h3 style="display:block;text-align:center">Profil Individual</h3><br/>
         <table border="0" width="100%">
         <tr>
            <td>NIS</td><td width="2px">:</td><td><?php echo $siswa->profile->nip ?></td>

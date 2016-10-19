@@ -28,7 +28,7 @@
 		), "id=" . $post_tes_id );
 
 		if( $post_soal_ke<$jumlah->soal ) {
-			redirect("tes?soal=" . ($post_soal_ke+1));
+			redirect("tes?soal=" . ($post_soal_ke));
 		} else {
 			$jwb = query_one( "select count(*) jumlah from tes_jawaban where tes_id=$post_tes_id" );
 			if( $jwb->jumlah==$jumlah->soal ){

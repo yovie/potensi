@@ -122,7 +122,7 @@
 
 		include './phpexcel/Classes/PHPExcel.php';
 		header('Content-type: application/vnd.ms-excel');
-		header('Content-Disposition: attachment; filename="Profil Kompetensi Karir.xlsx"');
+		header('Content-Disposition: attachment; filename="Profil Kompetensi Karir.xls"');
 		$objPHPExcel = new PHPExcel();
 		$sheet = $objPHPExcel->getActiveSheet();
 		
