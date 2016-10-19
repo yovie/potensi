@@ -40,7 +40,7 @@
 					"group_id"=>2,
 					"ref_id"=>$pro
 				) );
-				set_flashmessage( array("status"=>true, "message"=>"Silakan login untuk tes", "title"=>"Register berhasil") );
+				//set_flashmessage( array("status"=>true, "message"=>"Silakan login untuk tes", "title"=>"Register berhasil") );
 			}
 			redirect( "home" );
 		}

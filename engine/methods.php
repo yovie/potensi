@@ -106,6 +106,7 @@
 		if(isset($_SESSION['flash_msg'])){
 			$res = $_SESSION['flash_msg'];
 			unset($_SESSION['flash_msg']);
+			$_SESSION['flash_msg'] = array();
 			return $res;
 		}else
 			return '';
